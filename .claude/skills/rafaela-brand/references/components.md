@@ -208,23 +208,26 @@ Foto real num painel retangular vertical: `aspect-ratio: 2 / 3`, `object-fit: co
 texto. É o formato oficial para foto de pessoa na marca — retangular alto com cantos
 arredondados, **nunca recortada em círculo**.
 
-A proporção `2 / 3` é deliberada: é a da própria foto, então **nada é cortado**. Ao trocar
-a imagem, prefira outra na mesma proporção vertical; se ela vier em outro formato, ajuste
-`object-position` para manter o rosto na parte alta do painel em vez de aceitar o corte no
-centro geométrico.
+A proporção `2 / 3` é deliberada. **Corte a imagem nessa proporção antes de subir**, num
+editor, decidindo onde o corte cai — não deixe o `object-fit: cover` cortar pelo centro
+geométrico, que quase nunca é onde está o rosto. O retrato atual veio em 896×1200 (3:4) e
+foi cortado para 720×1080 centrado no sujeito, que estava 11px à direita do centro da
+imagem. `object-position` é o último recurso, para quando não dá para recortar o arquivo.
 
-`.about__credential` é a legenda que acompanha o retrato: rótulo em caixa alta dourado
-(`.64rem`, `letter-spacing: .22em`) precedido de um filete de 24px. Ela é o que transforma
-a foto em credencial em vez de exemplo de resultado — não remova a legenda mantendo a foto.
+`.about__credential` é uma legenda **opcional**: rótulo em caixa alta dourado (`.64rem`,
+`letter-spacing: .22em`) precedido de um filete de 24px. Use quando a foto puder ser lida
+como *exemplo de resultado* — uma imagem de palco ou de físico precisa da legenda para ler
+como credencial em vez de "é assim que você tem que ficar". Um retrato de estúdio não
+carrega esse risco e dispensa a legenda; é por isso que ela não aparece na home hoje.
 
 ```html
 <figure class="about__figure" data-reveal>
   <picture>
-    <source srcset="assets/palco.webp" type="image/webp">
-    <img class="about-photo" src="assets/palco.jpg" width="900" height="1350"
+    <source srcset="assets/retrato.webp" type="image/webp">
+    <img class="about-photo" src="assets/retrato.jpg" width="720" height="1080"
          alt="…" loading="lazy" decoding="async">
   </picture>
-  <figcaption class="about__credential">Olympia Amateur Brasil · 2025</figcaption>
+  <!-- <figcaption class="about__credential">Olympia Amateur Brasil · 2025</figcaption> -->
 </figure>
 ```
 
