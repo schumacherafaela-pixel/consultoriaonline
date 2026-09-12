@@ -211,8 +211,12 @@ arredondados, **nunca recortada em círculo**.
 A proporção `2 / 3` é deliberada. **Corte a imagem nessa proporção antes de subir**, num
 editor, decidindo onde o corte cai — não deixe o `object-fit: cover` cortar pelo centro
 geométrico, que quase nunca é onde está o rosto. O retrato atual veio em 896×1200 (3:4) e
-foi cortado para 720×1080 centrado no sujeito, que estava 11px à direita do centro da
-imagem. `object-position` é o último recurso, para quando não dá para recortar o arquivo.
+foi cortado para 667×1000 a partir de (117, 40), enquadrando o torso, a mesa e o notebook. `object-position` é o último recurso, para quando não dá para recortar o arquivo.
+
+**Corte fechado custa resolução.** O painel exibe `470×704` no desktop. Um corte de busto
+num arquivo de 896×1200 sobra `533×800` (1,13× de densidade) e um de peito para cima sobra
+`440×660` (0,94×) — visivelmente mais macio que o atual em tela retina. Meça a densidade
+antes de fechar o enquadramento: `largura do recorte ÷ 470`.
 
 `.about__credential` é uma legenda **opcional**: rótulo em caixa alta dourado (`.64rem`,
 `letter-spacing: .22em`) precedido de um filete de 24px. Use quando a foto puder ser lida
@@ -224,7 +228,7 @@ carrega esse risco e dispensa a legenda; é por isso que ela não aparece na hom
 <figure class="about__figure" data-reveal>
   <picture>
     <source srcset="assets/retrato.webp" type="image/webp">
-    <img class="about-photo" src="assets/retrato.jpg" width="720" height="1080"
+    <img class="about-photo" src="assets/retrato.jpg" width="667" height="1000"
          alt="…" loading="lazy" decoding="async">
   </picture>
   <!-- <figcaption class="about__credential">Olympia Amateur Brasil · 2025</figcaption> -->
